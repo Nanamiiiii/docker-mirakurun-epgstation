@@ -1,4 +1,13 @@
-# docker-mirakurun-epgstation
+# nanami-dtv-kit
+[docker-mirakurun-epgstation](https://github.com/l3tnun/docker-mirakurun-epgstation)をベースにカスタムしたマニフェスト群
+
+## Changes from Original
+- Mirakurunを[Mirakurun-recisdb](https://github.com/Nanamiiiii/Mirakurun-recisdb)へ変更
+- EPGStationのimageに[epgs-to-discord](https://github.com/yude/epgs-to-discord)を追加
+
+以下オリジナルのReadme
+
+---
 
 [Mirakurun](https://github.com/Chinachu/Mirakurun) + [EPGStation](https://github.com/l3tnun/EPGStation) の Docker コンテナ
 

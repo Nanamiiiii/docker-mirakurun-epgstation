@@ -1,7 +1,9 @@
 version: '3.7'
 services:
     mirakurun:
-        image: chinachu/mirakurun
+        # use recisdb bundled image
+        # image: chinachu/mirakurun
+        image: nanamiiiii/mirakurun-recisdb
         cap_add:
             - SYS_ADMIN
             - SYS_NICE
@@ -51,6 +53,7 @@ services:
             - ./epgstation/data:/app/data
             - ./epgstation/thumbnail:/app/thumbnail
             - ./epgstation/logs:/app/logs
+            - ./epgstation/epgs-to-discord/config.toml:/root/.config/epgs-to-discord/config.toml
             - ./recorded:/app/recorded
         environment:
             TZ: "Asia/Tokyo"

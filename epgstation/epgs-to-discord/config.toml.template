@@ -1,0 +1,5 @@
+[misc]
+name = "EPGStation"
+
+[credentials]
+webhook_url = ""

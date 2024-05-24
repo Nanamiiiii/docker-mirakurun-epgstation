@@ -1,3 +1,10 @@
+# Build epgs-to-discord
+FROM l3tnun/epgstation:master-debian as builder
+RUN apt-get update && apt-get -y upgrade && \
+    apt-get -y install build-essential curl && \
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain stable -y && \
+    /root/.cargo/bin/cargo install epgs-to-discord
+
 FROM l3tnun/epgstation:master-debian
 
 ENV DEV="make gcc git g++ automake curl wget autoconf build-essential libass-dev libfreetype6-dev libsdl1.2-dev libtheora-dev libtool libva-dev libvdpau-dev libvorbis-dev libxcb1-dev libxcb-shm0-dev libxcb-xfixes0-dev pkg-config texinfo zlib1g-dev"
@@ -42,3 +49,6 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf /tmp/*
+
+COPY --from=builder /root/.cargo/bin/epgs-to-discord /usr/local/bin/
+
